@@ -1,16 +1,13 @@
- 
-  /* @media (-moz-bool-pref: "uc.enabled") {
-    .titlebar-close {
-      display: none;
-    }
+@media (-moz-bool-pref: "uc.enabled") {
+  .titlebar-close {
+    display: none !important;
   }
-   */
-  @media (-moz-bool-pref: "uc.enabled") {
-    .titlebar-buttonbox-container { 
-      background-color: pink !important; 
-    }
-  
-    .window-controls{
-      background-color: pink;
-    }
+
+  .titlebar-buttonbox-container {
+    background-color: pink !important;
   }
+
+  .window-controls {
+    background-color: pink !important;
+  }
+}
