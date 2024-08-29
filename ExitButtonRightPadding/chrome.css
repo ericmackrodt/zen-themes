@@ -1,13 +1,3 @@
-@media (-moz-bool-pref: "uc.enabled") {
-  .titlebar-close {
-    display: none !important;
-  }
-
-  .titlebar-buttonbox-container {
-    background-color: pink !important;
-  }
-
-  .window-controls {
-    background-color: pink !important;
-  }
+.titlebar-buttonbox-container {
+  padding-right: 4px;
 }
