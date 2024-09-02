@@ -68,6 +68,7 @@
 
 /* Web-page canvas shadow */
 @media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.page-canvas-shadows.enabled") {
+  /* Necessary to keep the shadow on the left side visible */
   #appcontent {
     overflow: visible !important;
   }
