@@ -68,6 +68,9 @@
 
 /* Web-page canvas shadow */
 @media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.page-canvas-shadows.enabled") {
+  #appcontent {
+    overflow: visible !important;
+  }
   #tabbrowser-tabpanels {
     grid-gap: var(--ezuitb-page-canvas-spacing) !important;
     padding-right: var(--ezuitb-page-canvas-spacing) !important;
@@ -164,7 +167,8 @@
     > #tabs-newtab-button::before {
     content: "";
     position: absolute;
-    top: calc(var(--zen-element-separation) * -1);
+    /* Using --zen-element-separation here made the bar thicker */
+    top: -8px;
     left: 0;
     width: 100%;
     height: 1.5px;
@@ -182,6 +186,7 @@
     ) !important;
     gap: 5px;
   }
+
   .tabbrowser-tab[pinned] {
     background-color: var(--ezuitb-darken-background) !important;
     border-radius: 8px !important;
@@ -202,6 +207,12 @@
     background-color: var(--ezuitb-tab-background-active) !important;
     box-shadow: var(--ezuitb-tab-background-active-shadow) !important;
   }
+
+  .tabbrowser-tab[pinned]:active {
+    /*  Keep the size of the separator when the tab is pressed */
+    transform: initial !important;
+    box-shadow: initial !important;
+  }
 }
 
 /* Zen workspace button */
@@ -211,21 +222,18 @@
     border-radius: 8px !important;
     cursor: pointer;
     box-sizing: border-box;
-    height: 34px !important;
+    height: 36px !important;
+    width: 36px !important;
     border-width: 0 !important;
-    aspect-ratio: 1 / 1;
+    margin-top: var(--zen-element-separation) !important;
+    padding: 0 !important;
+    margin-left: var(--ezuitb-element-three-quarters-separation) !important;
+    margin-right: 0 !important;
   }
 
   /* Zen workspace button - Hover */
   #zen-workspaces-button:hover {
     background-color: var(--ezuitb-darken-background-hover) !important;
-  }
-
-  /* Zen workspace button - space from tabs when collapsed */
-  @media not (-moz-bool-pref: "zen.view.sidebar-expanded") {
-    #zen-workspaces-button {
-      margin-bottom: var(--zen-element-separation) !important;
-    }
   }
 
   /* Zen workspace button - width when expanded */
@@ -235,6 +243,7 @@
         100% - var(--ezuitb-element-three-quarters-separation)
       ) !important;
       margin-left: var(--ezuitb-element-half-separation) !important;
+      margin-bottom: 0 !important;
     }
   }
 }
@@ -260,9 +269,15 @@
   }
 
   /* Tab - Selected */
-  .tabbrowser-tab:not([pinned])[selected="true"],
-  .tabbrowser-tab:not([pinned])[multiselected="true"] {
+  .tabbrowser-tab:not([pinned]):is([multiselected="true"], [selected]) {
     background-color: var(--ezuitb-tab-background-active) !important;
     box-shadow: var(--ezuitb-tab-background-active-shadow) !important;
+  }
+
+  .tabbrowser-tab:not([pinned]):active,
+  #tabs-newtab-button:active {
+    /*  Keep the size of the separator when the tab is pressed */
+    transform: initial !important;
+    box-shadow: initial !important;
   }
 }
