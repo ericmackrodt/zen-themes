@@ -2,13 +2,7 @@
 
 Several optional UI changes for the Zen Browser. Completely changes the appearance of the browser with all tweaks enabled.
 
-**Exit Button Right Padding theme users** - You don´t need that theme when using this one.
-
 ## Available Tweaks
-
-### `!macos:uc.erics-zen-ui-tweak-box.exit-button-padding-right.enabled`
-
-**Description:** Adds some spacing to the right of the exit button. This is particularly useful when using certain Gnome extensions This setting does the exact same thing as the `Exit Button Right Padding` theme.
 
 ### `uc.erics-zen-ui-tweak-box.fun-colors.enabled`
 
@@ -17,6 +11,10 @@ Several optional UI changes for the Zen Browser. Completely changes the appearan
 ### `uc.erics-zen-ui-tweak-box.tab-bar-top-padding.enabled`
 
 **Description:** Removes the top padding from the tabs side panel so it's aligned with the page canvas.
+
+### `uc.erics-zen-ui-tweak-box.keep-tab-bar-top-padding-when-collapsed.enabled`
+
+**Description:** Keeps the top padding on the side panel when collapsed.
 
 ### `uc.erics-zen-ui-tweak-box.page-canvas-shadows.enabled`
 
@@ -59,6 +57,18 @@ Several optional UI changes for the Zen Browser. Completely changes the appearan
 ### `uc.erics-zen-ui-tweak-box.toolbar-button-tweaks.enabled`
 
 **Description:** Tweaks the appearance of the toolbar buttons.
+
+### `uc.erics-zen-ui-tweak-box.new-tab-button-below-tabs.enabled`
+
+**Description:** Moves the new tab button below the tabs list.
+
+### `uc.erics-zen-ui-tweak-box.new-tab-button-tweaks.enabled`
+
+**Description:** Teakes the appearance of the New tab button.
+
+### `uc.erics-zen-ui-tweak-box.pinned-tabs-no-scroll.enabled`
+
+**Description:** Disables scrolling the pinned tabs.
 
 ## Tweaking the background gradient
 
