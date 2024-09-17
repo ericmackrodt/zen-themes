@@ -221,16 +221,6 @@
   }
 }
 
-/* Pinned tabs no-scroll */
-@media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.pinned-tabs-no-scroll.enabled") {
-  #vertical-pinned-tabs-container {
-    max-height: unset !important;
-    overflow-x: unset !important;
-    overflow-y: unset !important;
-    overflow: visible !important;
-  }
-}
-
 /* Pinned tabs grid layout */
 @media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.pinned-tabs-layout.enabled") {
   #vertical-pinned-tabs-container {
@@ -301,28 +291,89 @@
     background-color: var(--ezuitb-darken-background-hover) !important;
   }
 
-  #tabs-newtab-button:hover > .toolbarbutton-icon {
+  #vertical-tabs-newtab-button:hover > .toolbarbutton-icon,
+  #alltabs-button:hover > .toolbarbutton-badge-stack {
     background-color: transparent !important;
+  }
+}
+
+/* All tabs button tweaks */
+@media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.all-tabs-button-tweaks.enabled") {
+  #alltabs-button {
+    margin-left: var(--ezuitb-element-half-separation) !important;
+    margin-right: 2px !important;
+    padding: var(--zen-element-separation) !important;
+    border-radius: 8px;
+    background-color: transparent !important;
+    height: var(--ezuitb-tab-bar-button-height) !important;
+    width: var(--ezuitb-tab-bar-button-height) !important;
+    margin-left: calc(var(--ezuitb-element-half-separation) + 1px) !important;
+
+    > .toolbarbutton-badge-stack {
+      padding: 0 !important;
+    }
+
+    &:hover {
+      background-color: var(--ezuitb-tab-background-hover) !important;
+    }
+
+    > .toolbarbutton-icon,
+    > .toolbarbutton-badge-stack {
+      background-color: transparent !important;
+    }
+  }
+
+  /* Zen all tabs button - expanded */
+  @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
+    #alltabs-button {
+      width: calc(
+        100% - var(--ezuitb-element-half-separation) + 2px
+      ) !important;
+      margin-left: calc(var(--ezuitb-element-half-separation) - 2px) !important;
+    }
+  }
+}
+
+/* All tabs Button with text */
+@media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.all-tabs-button-text.enabled") {
+  @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
+    #alltabs-button {
+      display: flex;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      padding-left: calc(
+        var(--ezuitb-element-three-quarters-separation) * 2
+      ) !important;
+      &:before {
+        font-size: 1rem;
+        content: "Show all tabs";
+        flex: 1;
+        color: var(--ezuitb-new-tab-button-text-color);
+      }
+    }
   }
 }
 
 /* Tab tweaks */
 @media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.tab-button-tweaks.enabled") {
-  #TabsToolbar,
-  #tabbrowser-tabs,
-  #tabbrowser-arrowscrollbox {
-    overflow-x: unset !important;
-    overflow-y: unset !important;
-  }
+  @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
+    /* This is needed to show the shadow */
+    #TabsToolbar,
+    #tabbrowser-tabs,
+    #tabbrowser-arrowscrollbox {
+      overflow-x: unset !important;
+      overflow-y: unset !important;
+    }
 
-  /* Even if you set overflow: visible, this container cuts the shadow on
+    /* Even if you set overflow: visible, this container cuts the shadow on
   right side of the button, so our only option is to increase the width */
-  #tabbrowser-arrowscrollbox {
-    width: calc(100% + var(--ezuitb-element-half-separation));
+    #tabbrowser-arrowscrollbox {
+      width: calc(100% + var(--ezuitb-element-half-separation));
 
-    .tabbrowser-tab:not([pinned]) {
-      width: calc(100% - var(--ezuitb-element-half-separation)) !important;
-      margin-right: var(--ezuitb-element-half-separation) !important;
+      .tabbrowser-tab:not([pinned]) {
+        width: calc(100% - var(--ezuitb-element-half-separation)) !important;
+        margin-right: var(--ezuitb-element-half-separation) !important;
+      }
     }
   }
 
@@ -344,6 +395,7 @@
 /* New tab tweaks */
 @media (-moz-bool-pref: "uc.erics-zen-ui-tweak-box.new-tab-button-tweaks.enabled") {
   #vertical-tabs-newtab-button {
+    width: var(--ezuitb-tab-bar-button-height) !important;
     background-color: transparent !important;
     height: var(--ezuitb-tab-bar-button-height) !important;
 
@@ -353,6 +405,12 @@
 
     > .toolbarbutton-icon {
       background-color: transparent !important;
+    }
+  }
+
+  @media (-moz-bool-pref: "zen.view.sidebar-expanded") {
+    #vertical-tabs-newtab-button {
+      width: 100% !important;
     }
   }
 }
